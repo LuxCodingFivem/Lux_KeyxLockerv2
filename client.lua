@@ -123,6 +123,7 @@ function OpenCreateKeyLockerMenu()
     CreateKeyLockerMenu:AddItem(SaveItem)
 
     SaveItem.Activated = function(sender, index)
+        _menuPool:CloseAllMenus()
         TriggerServerEvent('Lux_KeyLockerv2:SaveKeyLocker', data)
         data = {}
     end
