@@ -24,25 +24,40 @@ RegisterCommand('CreateKeyLocker', function(source, args)
 end, false)
 
 function OpenCreateKeyLockerMenu()
+    local data = {}
     _menuPool:CloseAllMenus()
 
     local PlayerPed = PlayerPedId()
     local PlayerCoords = GetEntityCoords(PlayerPed)
 
+    data.x = PlayerCoords.x
+    data.y = PlayerCoords.y
+    data.z = PlayerCoords.z
+
     local CreateKeyLockerMenu = NativeUI.CreateMenu(string.format(Translation[Config.Locale]['create_key_locker_menu_title']), '~b~')
     _menuPool:Add(CreateKeyLockerMenu)
 
-    local CoordXItem = NativeUI.CreateItem('X:', '')
+    local CoordXItem = NativeUI.CreateItem(string.format(Translation[Config.Locale]['coord_x_item_title']), string.format(Translation[Config.Locale]['coord_x_item_description']))
     CoordXItem:RightLabel(ESX.Math.Round(PlayerCoords.x, 2))
     CreateKeyLockerMenu:AddItem(CoordXItem)
 
-    local CoordYItem = NativeUI.CreateItem('Y:', '')
+    local CoordYItem = NativeUI.CreateItem(string.format(Translation[Config.Locale]['coord_y_item_title']), string.format(Translation[Config.Locale]['coord_y_item_description']))
     CoordYItem:RightLabel(ESX.Math.Round(PlayerCoords.y, 2))
     CreateKeyLockerMenu:AddItem(CoordYItem)
 
-    local CoordZItem = NativeUI.CreateItem('Z:', '')
+    local CoordZItem = NativeUI.CreateItem(string.format(Translation[Config.Locale]['coord_z_item_title']), string.format(Translation[Config.Locale]['coord_z_item_description']))
     CoordZItem:RightLabel(ESX.Math.Round(PlayerCoords.z, 2))
     CreateKeyLockerMenu:AddItem(CoordZItem)
+
+    local SizeItem = NativeUI.CreateItem(string.format(Translation[Config.Locale]['size_item_title']), string.format(Translation[Config.Locale]['size_item_description']))
+    CreateKeyLockerMenu:AddItem(SizeItem)
+
+    SizeItem.Activated = function(sender, index)
+        local Input = exports['Lux_Input']:Input('text', string.format(Translation[Config.Locale]['input_size']))
+        data.size = Input
+        SizeItem:RightLabel(Input)
+        _menuPool:RefreshIndex()
+    end
 
     local CloseItem = NativeUI.CreateItem(string.format(Translation[Config.Locale]['close_item_title']), string.format(Translation[Config.Locale]['close_item_description']))
     CreateKeyLockerMenu:AddItem(CloseItem)
