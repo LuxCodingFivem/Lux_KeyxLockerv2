@@ -17,6 +17,11 @@ Translation = {
         ['size_item_title'] = 'Größe:',
         ['size_item_description'] = '',
         ['input_size'] = 'Gebe die Größe ein',
+        ['access_submenu_title'] = 'Zugriff',
+        ['access_submenu_description'] = '',
+        ['password_item_title'] = 'Passwort:',
+        ['password_item_description'] = '',
+        ['input_password'] = 'Gebe ein Passwort ein',
     },
     ['en'] = {
         ['close_item_title'] = 'close',
@@ -31,5 +36,10 @@ Translation = {
         ['size_item_title'] = 'Größe:',
         ['size_item_description'] = '',
         ['input_size'] = 'Gebe die Größe ein',
+        ['access_submenu_title'] = 'Zugriff',
+        ['access_submenu_description'] = '',
+        ['password_item_title'] = 'Passwort:',
+        ['password_item_description'] = '',
+        ['input_password'] = 'Gebe ein Passwort ein',
     },
 }

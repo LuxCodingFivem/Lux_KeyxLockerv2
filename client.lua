@@ -53,9 +53,20 @@ function OpenCreateKeyLockerMenu()
     CreateKeyLockerMenu:AddItem(SizeItem)
 
     SizeItem.Activated = function(sender, index)
-        local Input = exports['Lux_Input']:Input('text', string.format(Translation[Config.Locale]['input_size']))
+        local Input = exports['Lux_Input']:Input('number', string.format(Translation[Config.Locale]['input_size']))
         data.size = Input
         SizeItem:RightLabel(Input)
+        _menuPool:RefreshIndex()
+    end
+
+    local AccessSubMenu = _menuPool:AddSubMenu(CreateKeyLockerMenu, string.format(Translation[Config.Locale]['access_submenu_title']), string.format(Translation[Config.Locale]['access_submenu_description']))
+    local PasswordItem = NativeUI.CreateItem(string.format(Translation[Config.Locale]['password_item_title']), string.format(Translation[Config.Locale]['password_item_description']))
+    AccessSubMenu.SubMenu:AddItem(PasswordItem)
+
+    PasswordItem.Activated = function(sender, index)
+        local Input = exports['Lux_Input']:Input('input', string.format(Translation[Config.Locale]['input_password']))
+        data.password = Input
+        PasswordItem:RightLabel(Input)
         _menuPool:RefreshIndex()
     end
 
