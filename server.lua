@@ -6,3 +6,8 @@ ESX.RegisterServerCallback('Lux_KeyLockerv2:getGroup', function(source, cb)
 
     cb(group)
 end)
+
+RegisterServerEvent('Lux_KeyLockerv2:SaveKeyLocker')
+AddEventHandler('Lux_KeyLockerv2:SaveKeyLocker', function(data)
+    
+end)

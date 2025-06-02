@@ -27,6 +27,11 @@ Translation = {
         ['add_item_item_title'] = '~b~Item Hinzufügen',
         ['add_item_item_description'] = '',
         ['add_item_input'] = 'Gebe den Item namen ein',
+        ['save_item_title'] = '~g~Speichern',
+        ['save_item_description'] = '',
+        ['label_item_title'] = 'Label:',
+        ['label_item_description'] = '',
+        ['input_label'] = 'Gebe das Label ein',
     },
     ['en'] = {
         ['close_item_title'] = 'close',
@@ -51,5 +56,10 @@ Translation = {
         ['add_item_item_title'] = '~b~Item Hinzufügen',
         ['add_item_item_description'] = '',
         ['add_item_input'] = 'Gebe den Item namen ein',
+        ['save_item_title'] = '~g~Speichern',
+        ['save_item_description'] = '',
+        ['label_item_title'] = 'Label:',
+        ['label_item_description'] = '',
+        ['input_label'] = 'Gebe das Label ein',
     },
 }

@@ -49,6 +49,16 @@ function OpenCreateKeyLockerMenu()
     CoordZItem:RightLabel(ESX.Math.Round(PlayerCoords.z, 2))
     CreateKeyLockerMenu:AddItem(CoordZItem)
 
+    local LabelItem = NativeUI.CreateItem(string.format(Translation[Config.Locale]['label_item_title']), string.format(Translation[Config.Locale]['label_item_description']))
+    CreateKeyLockerMenu:AddItem(LabelItem)
+
+    LabelItem.Activated = function(sender, index)
+        local Input = exports['Lux_Input']:Input('input', string.format(Translation[Config.Locale]['input_label']))
+        data.label = Input
+        LabelItem:RightLabel(Input)
+        _menuPool:RefreshIndex()
+    end
+
     local SizeItem = NativeUI.CreateItem(string.format(Translation[Config.Locale]['size_item_title']), string.format(Translation[Config.Locale]['size_item_description']))
     CreateKeyLockerMenu:AddItem(SizeItem)
 
@@ -107,6 +117,14 @@ function OpenCreateKeyLockerMenu()
     
             RebuildAddItemsSubMenu()
         end
+    end
+
+    local SaveItem = NativeUI.CreateItem(string.format(Translation[Config.Locale]['save_item_title']), string.format(Translation[Config.Locale]['save_item_description']))
+    CreateKeyLockerMenu:AddItem(SaveItem)
+
+    SaveItem.Activated = function(sender, index)
+        TriggerServerEvent('Lux_KeyLockerv2:SaveKeyLocker', data)
+        data = {}
     end
 
     local CloseItem = NativeUI.CreateItem(string.format(Translation[Config.Locale]['close_item_title']), string.format(Translation[Config.Locale]['close_item_description']))
