@@ -70,6 +70,45 @@ function OpenCreateKeyLockerMenu()
         _menuPool:RefreshIndex()
     end
 
+    local AddItemsSubMenu = _menuPool:AddSubMenu(AccessSubMenu.SubMenu, string.format(Translation[Config.Locale]['add_item_submenu_title']), string.format(Translation[Config.Locale]['add_item_submenu_description']))
+    local AddItemItem = NativeUI.CreateItem(string.format(Translation[Config.Locale]['add_item_item_title']), string.format(Translation[Config.Locale]['add_item_item_description']))
+    AddItemsSubMenu.SubMenu:AddItem(AddItemItem)
+
+    function RebuildAddItemsSubMenu()
+        AddItemsSubMenu.SubMenu:Clear()  -- Alle Items entfernen
+    
+        -- Items neu einfügen
+        for _, itemText in ipairs(data.items) do
+            local item = NativeUI.CreateItem(itemText, '')
+            AddItemsSubMenu.SubMenu:AddItem(item)
+    
+            item.Activated = function()
+                -- Aus Tabelle entfernen
+                for i = #data.items, 1, -1 do
+                    if data.items[i] == itemText then
+                        table.remove(data.items, i)
+                        break
+                    end
+                end
+
+                RebuildAddItemsSubMenu()
+            end
+        end
+    
+        AddItemsSubMenu.SubMenu:AddItem(AddItemItem)
+        _menuPool:RefreshIndex()
+    end
+
+    AddItemItem.Activated = function(sender, index)
+        local Input = exports['Lux_Input']:Input('input', string.format(Translation[Config.Locale]['add_item_input']))
+        if Input and Input ~= '' then
+            data.items = data.items or {}
+            table.insert(data.items, Input)
+    
+            RebuildAddItemsSubMenu()
+        end
+    end
+
     local CloseItem = NativeUI.CreateItem(string.format(Translation[Config.Locale]['close_item_title']), string.format(Translation[Config.Locale]['close_item_description']))
     CreateKeyLockerMenu:AddItem(CloseItem)
     

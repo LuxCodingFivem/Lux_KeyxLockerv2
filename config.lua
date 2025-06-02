@@ -22,6 +22,11 @@ Translation = {
         ['password_item_title'] = 'Passwort:',
         ['password_item_description'] = '',
         ['input_password'] = 'Gebe ein Passwort ein',
+        ['add_item_submenu_title'] = 'Items:',
+        ['add_item_submenu_description'] = '',
+        ['add_item_item_title'] = '~b~Item Hinzufügen',
+        ['add_item_item_description'] = '',
+        ['add_item_input'] = 'Gebe den Item namen ein',
     },
     ['en'] = {
         ['close_item_title'] = 'close',
@@ -41,5 +46,10 @@ Translation = {
         ['password_item_title'] = 'Passwort:',
         ['password_item_description'] = '',
         ['input_password'] = 'Gebe ein Passwort ein',
+        ['add_item_submenu_title'] = 'Items:',
+        ['add_item_submenu_description'] = '',
+        ['add_item_item_title'] = '~b~Item Hinzufügen',
+        ['add_item_item_description'] = '',
+        ['add_item_input'] = 'Gebe den Item namen ein',
     },
 }
